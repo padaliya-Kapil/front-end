@@ -11,7 +11,15 @@ const ListScreen = ({ history }) => {
   const userList = useSelector((state) => state.userList)
   const { loading, error, users } = userList
 
-  return <div>{users}</div>
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
+  useEffect(() => {
+    console.log(userInfo)
+    dispatch(listUsers())
+  }, [dispatch])
+
+  return <div>List</div>
 }
 
 export default ListScreen
